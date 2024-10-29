@@ -26,6 +26,7 @@ function Footer({}: Props) {
   }, []);
 
   const footerColumns = itemData.map((item, index) => (
+    // eslint-disable-next-line react/jsx-key
     <FooterColumn index={index} data={item} />
   ))
 

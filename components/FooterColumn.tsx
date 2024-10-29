@@ -10,7 +10,9 @@ type Props = {
 function FooterColumn({ index, data }: Props) {
     const columnItems = data.map((item, index) => 
         index === 0 
+        // eslint-disable-next-line react/jsx-key
         ? <h5 className="font-bold">{item}</h5>
+        // eslint-disable-next-line react/jsx-key
         : <p>{item}</p>);
 
     return (<motion.div
