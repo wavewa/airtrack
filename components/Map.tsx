@@ -24,6 +24,7 @@ type Props = {
 };
 
 function Map({ center, locationValue }: Props) {
+  console.log("Map component output:", <MapContainer  />);
   return (
     <MapContainer
       center={(center as L.LatLngExpression) || [51, -0.09]}
