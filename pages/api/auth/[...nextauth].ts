@@ -52,7 +52,21 @@ export const authOptions: AuthOptions = {
   pages: {
     signIn: "/",
   },
-  debug: process.env.NODE_ENV === "development",
+  //debug: process.env.NODE_ENV === "development",
+  debug: true,  // Abilita il debug per analizzare l’errore su Vercel
+  callbacks: {
+    async signIn({ account }) {
+      try {
+        if (account.provider === 'google') {
+          // logica personalizzata per Google, se necessaria
+          return true;
+        }
+      } catch (error) {
+        console.error("Errore durante la callback di Google:", error);
+        return false;
+      }
+    },
+  },
   session: {
     strategy: "jwt",
   },
