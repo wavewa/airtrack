@@ -55,17 +55,23 @@ export const authOptions: AuthOptions = {
   //debug: process.env.NODE_ENV === "development",
   debug: true,  // Abilita il debug per analizzare l’errore su Vercel
   callbacks: {
-    async signIn({ account }) {
+
+    async signIn({ user, account, profile, email, credentials }) {
+      const isAllowedToSignIn = true;
       try {
-        if (account.provider === 'google') {
-          // logica personalizzata per Google, se necessaria
+        if (isAllowedToSignIn || account?.provider === "google") {
           return true;
+        } else {
+          // Return false to display a default error message
+          return false;
+          // Or you can return a URL to redirect to:
+          // return '/unauthorized'
         }
       } catch (error) {
         console.error("Errore durante la callback di Google:", error);
         return false;
       }
-    },
+    }
   },
   session: {
     strategy: "jwt",
