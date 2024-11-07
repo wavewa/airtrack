@@ -60,9 +60,11 @@ export const authOptions: AuthOptions = {
       const isAllowedToSignIn = true;
       try {
         if (isAllowedToSignIn || account?.provider === "google") {
+          console.info("Callback di Google:", user, account, profile, email, credentials);
           return true;
         } else {
           // Return false to display a default error message
+          console.error("Accesso negato per Google:", user, account, profile, email, credentials);
           return false;
           // Or you can return a URL to redirect to:
           // return '/unauthorized'
