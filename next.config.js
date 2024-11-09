@@ -3,7 +3,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: isProd ? '/airtrack/' : '',
+  assetPrefix: isProd ? '/wasco/' : '',
   basePath: isProd ? '/airtrack' : '',
   output: 'export',
   experimental: {
